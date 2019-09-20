@@ -1,0 +1,73 @@
+@import url("Nunito/Nunito.css");
+* {
+  position: relative;
+}
+
+body {
+  font-family: 'Nunito';
+  margin: 0em;
+  /* font-size: 1.1em; */
+}
+
+input[type=text], select {
+  font: inherit;
+  padding: .1em;
+  border: solid 1px #D8D8D8;
+  box-sizing: border-box;
+}
+
+input[type="button"], input[type="submit"] {
+  font: inherit;
+  /*padding: .1em;
+  min-width: 4em;*/
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font: inherit;
+}
+
+.blur {
+  filter: blur(2px);
+}
+
+.hidden {
+  display: none;
+}
+
+.task {
+  height: .1em;
+  background-color: red;
+  margin: .1em 0;
+}
+
+.note {
+  color: grey;
+  border-top: 1px solid lightgrey;
+}
+#day-info {
+  vertical-align: top;
+  text-align: center;
+}
+#day-info .solar-day {
+  font-size: 2em;
+  font-weight: bold;
+}
+.lunar-day {
+  font-size: 1.3em;
+  color: dodgerblue;
+}
+.holiday-des {
+  color: red;
+}
+.min-no-wrap {
+  width: 1px;
+  white-space: nowrap;
+}
+
+.width100 {
+  width: 100%;
+}

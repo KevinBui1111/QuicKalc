@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>QuicKalc</title>
+  <link rel="icon" href="school-calendar.png">
+  <script src="script/jquery-3.3.1.min.js"></script>
+  <script src="script.js"></script>
+
+  <link rel="stylesheet" type='text/css' href="style.css">
+</head>
+
+<body>
+  <div>
+    <form >
+      <div>
+        Distance <input id='txt-distance' type="text" onchange="dis_change(this);" oninput="format_pace(this);">
+        <select id='sel-dis'>
+          <option>km</option>
+          <option>m</option>
+          <option>mi</option>
+        </select>
+      </div>
+      <div>
+        Pace
+        <input id='txt-p-min' type="text" maxlength="5" inputmode="numeric" oninput="format_pace(this);"/>
+        <input id='txt-p-sec' type="text" maxlength="3" inputmode="numeric" oninput="format_pace_2(this);"/>
+      </div>
+      <div>
+        Speed
+        <input id='txt-sec' type="text" maxlength="3" inputmode="numeric" oninput="format_pace_2(this);"/>
+        <select id='sel-dis'>
+          <option>km/h</option>
+          <option>mi/h</option>
+        </select>
+      </div>
+      <div>
+          Time
+          <input id='txt-t-hh' type="text" maxlength="5" inputmode="numeric" oninput="format_pace(this);"/>
+          <input id='txt-t-mm' type="text" maxlength="5" inputmode="numeric" oninput="format_pace(this);"/>
+          <input id='txt-t-ss' type="text" maxlength="3" inputmode="numeric" oninput="format_pace_2(this);"/>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
