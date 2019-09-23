@@ -48,7 +48,6 @@ function change_input(e){
   else
     inp_e.splice(inp_e.indexOf(e), 1);
 
-  console.log(out_e);
   calc();
 }
 
@@ -69,6 +68,12 @@ function calc(){
     let pace_total = (ti_h * 3600 + ti_m * 60 + ti_s) / dis;
     ctl_pa_m.value = ~~(pace_total / 60);
     ctl_pa_s.value = ~~pace_total % 60;
+    ctl_spd.value = +(3600 / pace_total).toFixed(3);
+  }
+  else if (out_e == 'dis'){
+    let pace_total = pa_m * 60 + pa_s;
+    let time_total = ti_h * 3600 + ti_m * 60 + ti_s;
+    ctl_dis.value = +(time_total / pace_total).toFixed(3);
   }
 }
 
