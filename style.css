@@ -48,21 +48,7 @@ th {
   color: grey;
   border-top: 1px solid lightgrey;
 }
-#day-info {
-  vertical-align: top;
-  text-align: center;
-}
-#day-info .solar-day {
-  font-size: 2em;
-  font-weight: bold;
-}
-.lunar-day {
-  font-size: 1.3em;
-  color: dodgerblue;
-}
-.holiday-des {
-  color: red;
-}
+
 .min-no-wrap {
   width: 1px;
   white-space: nowrap;
@@ -70,4 +56,8 @@ th {
 
 .width100 {
   width: 100%;
+}
+
+input[type=text] {
+  text-align: right;
 }
