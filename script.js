@@ -4,12 +4,12 @@ let out_e = 'time'
   , inp_e = ['dis','pace']
   ;
 let ctl_dis
-  , ctl_pa_m, clt_pa_s, clt_spd
+  , ctl_pa_m, ctl_pa_s, ctl_spd
   , ctl_ti_h, ctl_ti_m, ctl_ti_s
   , clt_unit_dis, clt_unit_speed
 $(document).ready(function () {
   [ctl_dis
-    , ctl_pa_m, clt_pa_s, clt_spd
+    , ctl_pa_m, ctl_pa_s, ctl_spd
     , ctl_ti_h, ctl_ti_m, ctl_ti_s
     , clt_unit_dis, clt_unit_speed] =
   [document.getElementById('txt-distance')
@@ -54,12 +54,21 @@ function change_input(e){
 
 function calc(){
   let dis = +ctl_dis.value || 0
-    , pa_m = +ctl_pa_m || 0
-    , pa_s = +ctl_pa_s || 0
-    , ti_h = +ctl_ti_h || 0, ti_m = +ctl_ti_m || 0, ti_s = +ctl_ti_s || 0
+    , pa_m = +ctl_pa_m.value || 0
+    , pa_s = +ctl_pa_s.value || 0
+    , ti_h = +ctl_ti_h.value || 0, ti_m = +ctl_ti_m.value || 0, ti_s = +ctl_ti_s.value || 0
 
   if (out_e == 'time'){
-
+    let pace_total = pa_m * 60 + pa_s;
+    let time_total = dis * pace_total;
+    ctl_ti_h.value = ~~(time_total / 3600);
+    ctl_ti_m.value = ~~(time_total % 3600 / 60);
+    ctl_ti_s.value = time_total % 60;
+  }
+  else if (out_e == 'pace'){
+    let pace_total = (ti_h * 3600 + ti_m * 60 + ti_s) / dis;
+    ctl_pa_m.value = ~~(pace_total / 60);
+    ctl_pa_s.value = ~~pace_total % 60;
   }
 }
 
