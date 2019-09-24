@@ -16,9 +16,10 @@
 <body>
   <div>
     <form action="javascript:0">
-      <div>
-        Distance <input id='txt-distance' type="text" pattern="\d+\.?\d*" onchange="onchange_dis(this);" oninput="format_pace(this);">
-        <select id='sel-dis'>
+      <div class="qk-row">
+        <div>Distance</div>
+        <input id='txt-distance' type="text" pattern="\d+\.?\d*" onchange="onchange_dis(this);" oninput="format_pace(this);">
+        <select id='sel-dis' onchange="onchange_sel_dis();">
           <option>km</option>
           <option>m</option>
           <option>mi</option>
@@ -32,18 +33,19 @@
       <div>
         Speed
         <input id='txt-spd' type="text" maxlength="3" inputmode="numeric" onchange="onchange_sp(this);" oninput="format_pace_2(this);"/>
-        <select id='sel-spd'>
+        <select id='sel-spd' onchange="onchange_sel_spd();">
           <option>km/h</option>
+          <option>m/min</option>
           <option>mi/h</option>
         </select>
       </div>
       <div>
-          Time
-          <input id='txt-t-hh' type="text" maxlength="5" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace(this);"/>
-          <input id='txt-t-mm' type="text" maxlength="5" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace(this);"/>
-          <input id='txt-t-ss' type="text" maxlength="3" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace_2(this);"/>
+        Time
+        <input id='txt-t-hh' type="text" maxlength="5" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace(this);"/>
+        <input id='txt-t-mm' type="text" maxlength="5" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace(this);"/>
+        <input id='txt-t-ss' type="text" maxlength="3" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace_2(this);"/>
       </div>
-      <input type="submit" class=".hidden" />
+      <input type="submit" class="hidden" />
     </form>
   </div>
 </body>

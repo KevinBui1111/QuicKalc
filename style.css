@@ -61,3 +61,12 @@ th {
 input[type=text] {
   text-align: right;
 }
+
+
+.qk-row {
+  display: flex;
+}
+
+.qk-row > * {
+  flex: 1;
+}
