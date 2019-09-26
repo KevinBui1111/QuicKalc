@@ -27,24 +27,15 @@ $(document).ready(function () {
 function format_decimal(val) {
   return val.replace(/[^0-9.]/g, '');
 }
-function format_pace(control){
+function number_only(control){
   control.value = format_decimal(control.value);
-  control.checkValidity();
-
-  $('[type="submit"]').click();
-  // document.getElementById("txt-sec").focus(); 
-  // document.getElementById("txt-sec").select();
 }
 
-function format_pace_2(control){
-  let val = control.value.replace(/[^0-9.]/g, '')
+function auto_2_digit(control){
+  let val = format_decimal(control.value);
   if (val.length == 3)
     val = val.substr(1);
   control.value = val;
-}
-
-function dis_change(e){
-  console.log(e.value);
 }
 
 function change_input(e){
@@ -58,18 +49,12 @@ function change_input(e){
 }
 
 function calc(){
-    // , ti_h = +ctl_ti_h.value || 0, ti_m = +ctl_ti_m.value || 0, ti_s = +ctl_ti_s.value || 0
-
   if (out_e == 'time'){
-    let time_total = v_dis * v_pace;
-    ctl_ti_h.value = ~~(time_total / 3600);
-    ctl_ti_m.value = ~~(time_total % 3600 / 60);
-    ctl_ti_s.value = time_total % 60;
+    set_ctl_time(v_dis * v_pace);
   }
   else if (out_e == 'pace'){
     let pace_total = v_time / v_dis;
-    ctl_pa_m.value = ~~(pace_total / 60);
-    ctl_pa_s.value = ~~pace_total % 60;
+    set_ctl_pace(pace_total);
     v_spd = 3600 / pace_total;
     onchange_sel_spd();
   }
@@ -102,8 +87,9 @@ function onchange_sp(control) {
   else if (ctl_unit_speed.value == 'mi/h')
     v_spd *= 1.60934;
 
-  ctl_pa_m.value = ~~(60 / v_spd);
-  ctl_pa_s.value = ~~(3600 / v_spd % 60);
+  v_pace = 3600 / v_spd;
+  set_ctl_pace(v_pace);
+  
   change_input('pace');
 }
 function onchange_time(control) {
@@ -126,4 +112,19 @@ function onchange_sel_dis() {
     ctl_dis.value = +(v_dis / 1.60934).toFixed(3);
   else
     ctl_dis.value = +v_dis.toFixed(3);
+}
+
+function set_ctl_pace(v_pace) {
+  ctl_pa_m.value = ~~(v_pace / 60);
+  ctl_pa_s.value = (~~v_pace % 60).pad_zero(2);
+}
+
+function set_ctl_time(time_total) {
+  ctl_ti_h.value = ~~(time_total / 3600);
+  ctl_ti_m.value = (~~(time_total % 3600 / 60)).pad_zero(2);
+  ctl_ti_s.value = (~~time_total % 60).pad_zero(2);
+}
+
+Number.prototype.pad_zero = function (len) {
+  return (this + '').padStart(len, 0);
 }

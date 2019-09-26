@@ -46,3 +46,15 @@
     font-weight: 700;
     src: url('Nunito-BoldItalic.ttf');
 }
+
+
+
+
+
+
+@font-face {
+    font-family: 'BebasNeue';
+    font-style: normal;
+    font-weight: 400;
+    src: url('BebasNeue Bold.otf');
+}

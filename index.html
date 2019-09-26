@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>QuicKalc</title>
-  <link rel="icon" href="school-calendar.png">
+  <link rel="icon" href="running.png">
   <script src="script/jquery-3.3.1.min.js"></script>
   <script src="script.js"></script>
 
@@ -18,35 +18,41 @@
     <form action="javascript:0">
       <div class="qk-row">
         <div>Distance</div>
-        <input id='txt-distance' type="text" pattern="\d+\.?\d*" onchange="onchange_dis(this);" oninput="format_pace(this);">
-        <select id='sel-dis' onchange="onchange_sel_dis();">
+        <input id='txt-distance' type="text" pattern="\d+\.?\d*" inputmode="numeric" onchange="onchange_dis(this);" oninput="number_only(this);">
+        <select id='sel-dis' class="padright" onchange="onchange_sel_dis();">
           <option>km</option>
           <option>m</option>
           <option>mi</option>
         </select>
       </div>
-      <div>
-        Pace
-        <input id='txt-p-min' type="text" maxlength="2" pattern="\d+" inputmode="numeric" onchange="onchange_pa(this);" oninput="format_pace(this);"/>
-        <input id='txt-p-sec' type="text" maxlength="3" inputmode="numeric" onchange="onchange_pa(this);" oninput="format_pace_2(this);"/>
+      <div class="qk-row">
+        <div>Pace</div>
+        <input id='txt-p-min' type="text" pattern="\d+" inputmode="numeric" onchange="onchange_pa(this);" oninput="auto_2_digit(this);"/>
+        <span>:</span>
+        <input id='txt-p-sec' type="text" pattern="\d+" inputmode="numeric" onchange="onchange_pa(this);" oninput="auto_2_digit(this);"/>
+        <div class="padright"></div>
       </div>
-      <div>
+      <div class="qk-row">
         Speed
-        <input id='txt-spd' type="text" maxlength="3" inputmode="numeric" onchange="onchange_sp(this);" oninput="format_pace_2(this);"/>
-        <select id='sel-spd' onchange="onchange_sel_spd();">
+        <input id='txt-spd' type="text" pattern="\d+\.?\d*" inputmode="numeric" onchange="onchange_sp(this);" oninput="number_only(this);"/>
+        <select id='sel-spd' class="padright" onchange="onchange_sel_spd();">
           <option>km/h</option>
           <option>m/min</option>
           <option>mi/h</option>
         </select>
       </div>
-      <div>
-        Time
-        <input id='txt-t-hh' type="text" maxlength="5" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace(this);"/>
-        <input id='txt-t-mm' type="text" maxlength="5" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace(this);"/>
-        <input id='txt-t-ss' type="text" maxlength="3" inputmode="numeric" onchange="onchange_time(this);" oninput="format_pace_2(this);"/>
+      <div class="qk-row">
+        <div>Time</div>
+        <input id='txt-t-hh' type="text" pattern="\d+" inputmode="numeric" onchange="onchange_time(this);" oninput="auto_2_digit(this);"/>
+        <span>:</span>
+        <input id='txt-t-mm' type="text" pattern="\d+" inputmode="numeric" onchange="onchange_time(this);" oninput="auto_2_digit(this);"/>
+        <span>:</span>
+        <input id='txt-t-ss' type="text" pattern="\d+" inputmode="numeric" onchange="onchange_time(this);" oninput="auto_2_digit(this);"/>
+        <div class="padright"></div>
       </div>
       <input type="submit" class="hidden" />
     </form>
+    <code>Created date: 2019-09-26 13:15</code>
   </div>
 </body>
 

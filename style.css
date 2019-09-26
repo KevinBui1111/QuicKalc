@@ -4,69 +4,65 @@
 }
 
 body {
-  font-family: 'Nunito';
-  margin: 0em;
+  font-family: sans-serif, 'Nunito';
+  color: #555;
+  /* margin: 0em; */
   /* font-size: 1.1em; */
 }
 
 input[type=text], select {
   font: inherit;
   padding: .1em;
-  border: solid 1px #D8D8D8;
+  border: solid 0px #D8D8D8;
   box-sizing: border-box;
-}
-
-input[type="button"], input[type="submit"] {
-  font: inherit;
-  /*padding: .1em;
-  min-width: 4em;*/
-}
-
-table {
-  border-collapse: collapse;
-}
-
-th {
-  font: inherit;
-}
-
-.blur {
-  filter: blur(2px);
 }
 
 .hidden {
   display: none;
 }
 
-.task {
-  height: .1em;
-  background-color: red;
-  margin: .1em 0;
-}
-
-.note {
-  color: grey;
-  border-top: 1px solid lightgrey;
-}
-
-.min-no-wrap {
-  width: 1px;
-  white-space: nowrap;
-}
-
-.width100 {
-  width: 100%;
-}
-
 input[type=text] {
   text-align: right;
+  min-width: 0;
+  font-size: 5em;
+  font-family: 'BebasNeue';
 }
-
 
 .qk-row {
   display: flex;
+  align-items: center;
+  padding: .1em 0;
+  border-bottom: solid 1px lightgrey;
 }
 
-.qk-row > * {
-  flex: 1;
+#txt-p-sec, #txt-t-mm, #txt-t-ss {
+  flex: 0 0 1em;
+}
+#txt-distance, #txt-p-min, #txt-spd, #txt-t-hh {
+  flex-grow: 1;
+  margin-left: .1em;
+}
+span {
+  font-size: 3em;
+  font-family: 'BebasNeue';
+}
+
+.padright{
+  flex: 0 0 4.5em;
+  margin-left: .1em;
+}
+
+@media screen and (min-width: 480px) {
+  body {
+    font-family: 'Nunito';
+    width: 25em;
+    margin: auto;
+  }
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-height: 480px) and (orientation: landscape){
+  input[type=text] {
+    font-size: 4em;
+  }
 }
